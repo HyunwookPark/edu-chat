@@ -1,9 +1,13 @@
 from bottle import route, post, request, run, template, view
 import sqlite3
-from message import Message
+import dataclasses
 
-msglist = []
+@dataclasses.dataclass
+class Message:
+    username: str
+    message: str
 
+msglist = [Message(username="bob", message="hello. my name is bob.")]
 
 @route('/chat')
 def hello():
