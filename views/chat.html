@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>チャットアプリ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="/chat" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <label class="form-label">Name</label>
+                </div>
+                <div class="col-9">
+                    <label class="form-label">Message</label>
+                </div>
+                <div class="col">
+                    <a class="btn btn-success" href="/chat/{{ username }}">Reload</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <input type="text" class="form-control" name="username" value="{{ username }}">
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" name="message">
+                </div>
+                <div class="col">
+                    <input type="submit" class="btn btn-primary" value="Send">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                % for msg in msglist:
+                <tr>
+                    <td>{{ msg.username }}</td>
+                    <td>{{ msg.message }}</td>
+                </tr>
+                % end
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
