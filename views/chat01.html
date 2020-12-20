@@ -1,0 +1,26 @@
+    <form action="/chat" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <label class="form-label">Name</label>
+                </div>
+                <div class="col-9">
+                    <label class="form-label">Message</label>
+                </div>
+                <div class="col-1">
+                    <a class="btn btn-success" href="/chat/{{ username }}">Reload</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <input type="text" class="form-control" name="username" value="{{ username }}">
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" name="message">
+                </div>
+                <div class="col-1">
+                    <input type="submit" class="btn btn-primary" value="Send">
+                </div>
+            </div>
+        </div>
+    </form>
